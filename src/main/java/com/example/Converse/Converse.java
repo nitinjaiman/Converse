@@ -3,6 +3,7 @@ package com.example.Converse;
 import com.example.Converse.model.User;
 import com.example.Converse.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,7 @@ import java.util.List;
 @SpringBootApplication
 @RequestMapping("/home")
 @RequiredArgsConstructor
+@Slf4j
 public class Converse {
 
     @Autowired
@@ -22,7 +24,7 @@ public class Converse {
     @RequestMapping("/")
     @ResponseBody
     List<User> home() {
-        System.out.println("NJ: " + userService.findAll());
+        log.info("NJ: " + userService.findAll());
         return userService.findAll();
     }
 
