@@ -1,26 +1,27 @@
 package com.example.Converse;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.Converse.model.User;
+import com.example.Converse.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.persistence.EntityManager;
+import java.util.List;
 
 @SpringBootApplication
 @RequestMapping("/home")
+@RequiredArgsConstructor
 public class Converse {
 
-    @Autowired
-    private EntityManager entityManager;
+    private UserService userService;
 
     @RequestMapping("/")
     @ResponseBody
-    String home() {
-        System.out.println("NJ: "+entityManager.getTransaction());
-        return "Random Message ";
+    List<User> home() {
+        System.out.println("NJ: " + userService.findAll());
+        return userService.findAll();
     }
 
     public static void main(String[] args) {
