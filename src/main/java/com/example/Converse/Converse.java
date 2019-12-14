@@ -11,7 +11,7 @@ public class Converse {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Hello World!";
+        return "Random Message";
     }
 
     public static void main(String[] args) {
