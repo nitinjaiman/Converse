@@ -7,17 +7,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.persistence.EntityManager;
+
 @SpringBootApplication
 @RequestMapping("/home")
 public class Converse {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
 
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        System.out.println("NJ: "+sessionFactory.toString());
+        System.out.println("NJ: "+entityManager.getTransaction());
         return "Random Message ";
     }
 
