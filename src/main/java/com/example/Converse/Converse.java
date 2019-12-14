@@ -3,6 +3,7 @@ package com.example.Converse;
 import com.example.Converse.model.User;
 import com.example.Converse.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Converse {
 
+    @Autowired
     private UserService userService;
 
     @RequestMapping("/")
